@@ -1,6 +1,6 @@
 import React from 'react'
 import Hero from "./sections/Hero.jsx";
-import AppShowcase from './sections/showcaseSection.jsx';
+import AppShowcase from './sections/ShowcaseSection.jsx';
 import NavBar from './components/NavBar.jsx';
 import FeatureCards from './sections/FeatureCards.jsx';
 import ExperienceSection from './sections/ExperienceSection.jsx';
