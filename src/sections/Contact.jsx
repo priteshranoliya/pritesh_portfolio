@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import Swal from "sweetalert2";
 
 import TitleHeader from "../components/TitleHeader";
 import ContactExperience from "../components/Models/Contact/ContactExperience";
@@ -20,22 +21,43 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true); // Show loading state
+    setLoading(true);
 
     try {
       await emailjs.sendForm(
-        "service_x9s15lj",
-        "template_ltr1x1k",
-        formRef.current,
-        { publicKey: "X9gKpu6WnD76-ZLna" }
+        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+        formRef.currgient,
+        { publicKey: import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY }
       );
 
-      // Reset form and stop loading
       setForm({ name: "", email: "", message: "" });
+
+      Swal.fire({
+        icon: "success",
+        title: "Message Sent!",
+        text: "Thanks for contacting me. I will get back to you soon! 🚀",
+        timer: 3000,
+        showConfirmButton: false,
+        background: "#1f2937",
+        color: "#f9fafb",
+        iconColor: "#10b981",
+      });
     } catch (error) {
-      console.error("EmailJS Error:", error); // Optional: show toast
+      console.error("EmailJS Error:", error);
+
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text:
+          error?.text ||
+          "Something went wrong. Please try again later or reconnect your Gmail in EmailJS.",
+        background: "#1f2937",
+        color: "#f9fafb",
+        iconColor: "#ef4444",
+      });
     } finally {
-      setLoading(false); // Always stop loading, even on error
+      setLoading(false);
     }
   };
 
