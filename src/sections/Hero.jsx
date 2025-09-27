@@ -4,7 +4,6 @@ import Button from "../components/Button";
 import HeroExperience from "../components/HeroModels/HeroExperience";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import Spline from "@splinetool/react-spline";
 
 const Hero = () => {
   useGSAP(() => {
@@ -68,9 +67,7 @@ const Hero = () => {
           </div>
         </figure>
 
-        {/* <div className="lg:w-[70%] lg:h-[70%] -z-10 fixed lg:top-[12%] md:right-[-15%] md:top-[20%] md:h-[50%] h-[35%] top-[10%] right-[14%]">
-          <Spline scene="https://prod.spline.design/BbutrwcNqOLXHifu/scene.splinecode" />
-        </div> */}
+        
       </div>
     </section>
   );
