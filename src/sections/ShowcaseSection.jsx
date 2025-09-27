@@ -6,7 +6,7 @@ import TitleHeader from "../components/TitleHeader";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const AppShowcase = () => {
+const ShowcaseSection = () => {
   const sectionRef = useRef(null);
   const rydeRef = useRef(null);
   const libraryRef = useRef(null);
@@ -115,4 +115,4 @@ const AppShowcase = () => {
   );
 };
 
-export default AppShowcase;
+export default ShowcaseSection;
